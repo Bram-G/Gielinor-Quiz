@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+body {
+    background: url(./Images/Default_login_screen_mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: auto ;
+    background-position: center center;
+    background-position: top;
+    background-color: black;
+}
+header, main div h3 {
+    width: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+
+}
+#gamebox{
+    border: solid 3px white;
+    margin: 0 auto;
+    width: 75%;
+    height: 600px;
+    position: relative;
+
+}
+#quiz-screen{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px;
+    grid-area: quiz-screen;
+    position: relative;
+    width: 700px;
+    background-color: rgba(55, 99, 99, 0.534);
+
+}
+#quizbox{
+    display: grid;
+    position: relative;
+    justify-content: center;
+    justify-items: center;
+    width: 80%;
+    height: 80%;
+    margin: 15px auto;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    grid-template:
+    "quiz-screen quiz-screen" 60%
+    "ans-1 ans-2"
+    "ans-3 ans-4";
+}
+#question-text{
+    margin-top: 20px;
+    text-align: center;
+}
+#startButton {
+    margin: 20px;
+    position: relative;
+    align-items: center;
+    width: 100px;
+    height: 20px;
+
+
+}
+.divflex{
+    display: flex;
+    justify-content: center;
+}
+.titleText{    
+    max-width: 400px;
+    background: gray;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+}
+.answer-button {
+    width: 75%;
+    height: 75%;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(88, 57, 115);
+}
