@@ -1,6 +1,7 @@
 // query selection
 var questionSpot = document.querySelector("#question-text")
 var timer = document.querySelector("#countdown")
+var scoreText = document.querySelector("#score")
 var quizBox = document.querySelector('#quizbox')
 var ansId1 = document.querySelector("#ans-1")
 var ansId2 = document.querySelector("#ans-2")
@@ -20,6 +21,7 @@ var option3TF;
 var option4;
 var option4TF;
 var allQuestions;
+var score;
 // make button dissapear and start quiz
 startButton.addEventListener("click",startGame)
 nextButton.addEventListener("click", nextQuestion)
@@ -27,11 +29,10 @@ nextButton.addEventListener("click", nextQuestion)
 function startGame() {
     console.log(secondsLeft) 
     startButton.style.display = "none"
-    // nextButton.style.display = "flex"
-    
-    setTime()
+    score = 0
     shuffledQuestions = allQuestions.sort(()=> Math.random() - .5)
     currentQuestionIndex = 0
+    setTime()
     nextQuestion() 
 }
 // when quiz question answered have it go to next question
@@ -61,7 +62,7 @@ function nextQuestion() {
 // make it  either right or wrong
 // decide if they clicked the right or wrong answer
     console.log("im runnin")
-    if ( currentQuestionIndex < 10) {
+    if (currentQuestionIndex < 10) {
         // setting variables to the indexed array values
     const currentQuestion = allQuestions[currentQuestionIndex].question
     var option1 = allQuestions[currentQuestionIndex].answers[0].text
@@ -69,10 +70,10 @@ function nextQuestion() {
     var option3 = allQuestions[currentQuestionIndex].answers[2].text
     var option4 = allQuestions[currentQuestionIndex].answers[3].text
         // setting variables for the true false value
-    var option1TF = allQuestions[currentQuestionIndex].answers[0].bool
-    var option2TF = allQuestions[currentQuestionIndex].answers[1].bool
-    var option3TF = allQuestions[currentQuestionIndex].answers[2].bool
-    var option4TF = allQuestions[currentQuestionIndex].answers[3].bool
+    option1TF = allQuestions[currentQuestionIndex].answers[0].bool
+    option2TF = allQuestions[currentQuestionIndex].answers[1].bool
+    option3TF = allQuestions[currentQuestionIndex].answers[2].bool
+    option4TF = allQuestions[currentQuestionIndex].answers[3].bool
         // logging current question and options for debugging
     console.log(currentQuestion)
     console.log(option1TF)
@@ -90,16 +91,77 @@ function nextQuestion() {
     
     ansId4.textContent = option4
     
-    currentQuestionIndex++
-}}
+    currentQuestionIndex++}
+    else {
+        endQuiz()
+
+    }
+
+}
 
 var selectedAnswer = quizBox.addEventListener("click", event =>{
-    if(event.target.id == "ans-1" && option1TF == true)
+    if(event.target.id == "ans-1" && option1TF == true){
+        score += 100
+        scoreText.textContent = score
+        nextQuestion()
+    }
+    else if (event.target.id != "ans-1") {
 
+    }
+    else{
+        score += 0
+        secondsLeft -= 5
+        nextQuestion()
+    }
+})
+var selectedAnswer = quizBox.addEventListener("click", event =>{
+    if(event.target.id == "ans-2" && option2TF == true){
+        score += 100
+        scoreText.textContent = score
+        nextQuestion()
+    }
+    else if (event.target.id == "ans-3"|| "ans-1" || "ans-4") {
 
-    console.log(event.target)
-} //make something true of false and compare them to optionTF 
-)
+    }
+    else{
+        score += 0
+        secondsLeft -= 5
+        nextQuestion()
+    }
+})
+var selectedAnswer = quizBox.addEventListener("click", event =>{
+    if(event.target.id == "ans-3" && option3TF == true){
+        score += 100
+        scoreText.textContent = score
+        nextQuestion()
+    }
+    else if (event.target.id != "ans-3") {
+
+    }
+    else{
+        score += 0
+        secondsLeft -= 5
+        nextQuestion()
+    }
+})
+var selectedAnswer = quizBox.addEventListener("click", event =>{
+    if(event.target.id == "ans-4" && option4TF == true){
+        score += 100
+        scoreText.textContent = score
+        nextQuestion()
+    }
+    else if (event.target.id != "ans-4") {
+
+    }
+    else{
+        score += 0
+        secondsLeft -= 5
+        nextQuestion()
+    }
+})
+function endQuiz(){
+    
+}
 
 function sendMessage(){
     questionSpot.textContent = "Time's up! Try Again"
