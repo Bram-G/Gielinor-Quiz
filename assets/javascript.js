@@ -160,14 +160,28 @@ var selectedAnswer = quizBox.addEventListener("click", event =>{
     }
 })
 function endQuiz(){
-    
+    questionSpot.textContent = "Nice Job! you scored " + score + " ! Try Again?"
+    startButton.style.display = ""
+    ansId1.textContent = ""
+    ansId2.textContent = ""
+    ansId3.textContent = ""
+    ansId4.textContent = ""
+    currentScore = score
+    highScore()
+
 }
+// keep track of score
+function highScore(){
+    var name = prompt('You got a highscore! Enter name:')
+    localStorage.setItem("HighScores",currentScore,)
+    localStorage.setItem("Names", name)
+}
+
 
 function sendMessage(){
     questionSpot.textContent = "Time's up! Try Again"
     secondsLeft = 60
 }
-// keep track of score
 var question01 = {
     question:
     "How much xp is needed to reach level 99 in any skill?",
@@ -233,30 +247,30 @@ var question07 = {
 }
 var question08 = {
     question:
-    "How much xp is needed to reach level 99 in any skill?",
+    "How much xp do you get for cooking a shark?",
     answers:[
-        {text:"13,034,431 xp", bool: true},
-        {text:"200,000,000 xp", bool:false},
-        {text:"6,517,253 xp", bool: false},
-        {text:"1,000,000 xp", bool:false},]
+        {text:"100 xp", bool:false},
+        {text:"150 xp", bool:false},
+        {text:"210 xp", bool:true},
+        {text:"524 xp", bool:false},]
 }
 var question09 = {
     question:
-    "How much xp is needed to reach level 99 in any skill?",
+    "How many quest points do you need to start the Recipe for Disaster quest?",
     answers:[
-        {text:"13,034,431 xp", bool: true},
-        {text:"200,000,000 xp", bool:false},
-        {text:"6,517,253 xp", bool: false},
-        {text:"1,000,000 xp", bool:false},]
+        {text:"150", bool:false},
+        {text:"175", bool:true},
+        {text:"200", bool:false},
+        {text:"100", bool:false},]
 }
 var question10 = {
     question:
-    "How much xp is needed to reach level 99 in any skill?",
+    "What species is the pinball loving random event character Flippa?",
     answers:[
-        {text:"13,034,431 xp", bool: true},
-        {text:"200,000,000 xp", bool:false},
-        {text:"6,517,253 xp", bool: false}, 
-        {text:"1,000,000 xp", bool:false},]
+        {text:"Goblin!", bool:false},
+        {text:"Elf", bool:false},
+        {text:"Troll", bool:true}, 
+        {text:"Demon", bool:false},]
 }
 var allQuestions =[question01,question02,question03,question04,question05,question06,question07,question08,question09,question10]
 
