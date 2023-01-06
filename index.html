@@ -21,19 +21,27 @@
         <div id="quizbox">
             <div id="quiz-screen">
                 <div><p>Time Remaining: <span id="countdown"> 0 </span></p></div>
-                <div id="question-text">
-                    <h2>questions will appear here</h2>
+                <div id="screen">
+                    <div id="question-text">
+                        <h2>questions will appear here</h2>
+                    </div>
+                    <button id="startButton"> Start!</button>
                 </div>
-                <button id="startButton"> Start!</button>
             </div>
-            <button class="answer-button" id="ans-1">option 1</button>
-            <button class="answer-button" id="ans-2">option 2</button>
-            <button class="answer-button" id="ans-3">option 3</button>
-            <button class="answer-button" id="ans-4">option 4</button>
+            <button class="answer-button" id="ans-1" data-selected="false">option 1</button>
+            <button class="answer-button" id="ans-2" data-selected="false">option 2</button>
+            <button class="answer-button" id="ans-3" data-selected="false">option 3</button>
+            <button class="answer-button" id="ans-4" data-selected="false">option 4</button>
+
+            
         </div>
+        <div class="nav">
+            <button class="nextButton" id="next"> Next </button>
+
+        </div>
+        <script src="./assets/javascript.js"> </script>
     </main>
 
     
 </body>
-<script src="./assets/javascript.js"> </script>
 </html>

@@ -33,7 +33,7 @@ header, main div h3 {
     display: flex;
     flex-direction: column;
     align-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     align-items: center;
     margin: 10px;
     grid-area: quiz-screen;
@@ -41,6 +41,17 @@ header, main div h3 {
     width: 700px;
     background-color: rgba(55, 99, 99, 0.534);
 
+}
+#screen{
+    height: 400px;
+    width: 500px;
+    margin: 30px;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 #quizbox{
     display: grid;
@@ -89,4 +100,16 @@ header, main div h3 {
     align-items: center;
     font-family: 'Times New Roman', Times, serif;
     background-color: rgb(88, 57, 115);
+}
+.nav{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 220px;
+    margin-bottom: 30px;
+}
+.nextButton{
+    height: 20px;
+    width: 50px;
+    /* display: none; */
+    justify-content: center;
 }
