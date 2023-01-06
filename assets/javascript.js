@@ -10,6 +10,7 @@ var ansId4 = document.querySelector("#ans-4")
 var secondsLeft = 60
 var startButton = document.querySelector("#startButton")
 var nextButton = document.querySelector("#next")
+// setting variables 
 var shuffledQuestions;
 var currentQuestionIndex;
 var option1;
@@ -22,12 +23,13 @@ var option4;
 var option4TF;
 var allQuestions;
 var score;
-// make button dissapear and start quiz
+// adding event listeners to buttons
 startButton.addEventListener("click",startGame)
 nextButton.addEventListener("click", nextQuestion)
-
+// start game function after pressing start
 function startGame() {
-    console.log(secondsLeft) 
+    // console.log(secondsLeft) 
+    // make button dissapear and start quiz
     startButton.style.display = "none"
     score = 0
     shuffledQuestions = allQuestions.sort(()=> Math.random() - .5)
@@ -35,15 +37,14 @@ function startGame() {
     setTime()
     nextQuestion() 
 }
-// when quiz question answered have it go to next question
-// have countdown timer
+// Starts countdown timer and gives end screen when time is up
 function setTime(){
     var timerInterval = setInterval(function(){
         secondsLeft--;
         timer.textContent = secondsLeft
         
 
-        if (secondsLeft === 0) {
+        if (secondsLeft <= 0) {
             clearInterval(timerInterval)
             sendMessage()
             alert("Time is up!")
@@ -55,13 +56,11 @@ function setTime(){
         }
     },1000)
 }
-// eventlistener that listens to next click and moves currentquestionIndex up 1
 
+// next question function puts text of question array
 function nextQuestion() {
 // puts question into the right spots
-// make it  either right or wrong
-// decide if they clicked the right or wrong answer
-    console.log("im runnin")
+    // console.log("im runnin")
     if (currentQuestionIndex < 10) {
         // setting variables to the indexed array values
     const currentQuestion = allQuestions[currentQuestionIndex].question
@@ -75,11 +74,11 @@ function nextQuestion() {
     option3TF = allQuestions[currentQuestionIndex].answers[2].bool
     option4TF = allQuestions[currentQuestionIndex].answers[3].bool
         // logging current question and options for debugging
-    console.log(currentQuestion)
-    console.log(option1TF)
-    console.log(option2TF)
-    console.log(option3TF)
-    console.log(option4TF)
+    // console.log(currentQuestion)
+    // console.log(option1TF)
+    // console.log(option2TF)
+    // console.log(option3TF)
+    // console.log(option4TF)
 
         // appending each part of the array to the screen
     questionSpot.textContent = currentQuestion
@@ -167,14 +166,26 @@ function endQuiz(){
     ansId3.textContent = ""
     ansId4.textContent = ""
     currentScore = score
-    highScore()
+    enterHighScore()
 
 }
 // keep track of score
-function highScore(){
+var highScores = [];
+function enterHighScore(){
     var name = prompt('You got a highscore! Enter name:')
-    localStorage.setItem("HighScores",currentScore,)
-    localStorage.setItem("Names", name)
+
+    localStorage.setItem("HighScores", JSON.stringify(currentScore))
+    localStorage.setItem("Names", JSON.stringify(name))
+}
+
+function viewHighScores() {
+    var storedHighScores = JSON.parse(localStorage.getItem("HighScores"))
+    var storedNames = JSON.parse(localStorage.getItem("name"))
+
+    if (storedHighScores !== null) {
+        highScores = storedHighScores 
+    }
+
 }
 
 
@@ -274,4 +285,4 @@ var question10 = {
 }
 var allQuestions =[question01,question02,question03,question04,question05,question06,question07,question08,question09,question10]
 
-console.log(allQuestions.length)
+// console.log(allQuestions.length)

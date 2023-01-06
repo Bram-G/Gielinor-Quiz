@@ -81,6 +81,12 @@ header, main div h3 {
 
 
 }
+#highScores{
+    flex-wrap: wrap;
+    display: flex;
+    width: 200px;
+    color: white;
+}
 .divflex{
     display: flex;
     justify-content: center;

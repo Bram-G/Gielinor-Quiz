@@ -5,7 +5,7 @@ I used JavaScript for the logic of the game. First I made the questions into obj
 
 If you choose the correct answer then you are rewarded with 100 points and it moves to the next question. If you are wrong the game subtracts 5 seconds from the clock and you are awarded 0 points. At the end of 10 questions your points are displayed and you are prompted for a name to add to the highscores list. 
 
-I have yet to code out the highscore list so that people can view their past attempts but hope to have that done soon.
+I have yet to code out the highscore list so that people can view their past attempts but hope to have that done soon. Currently It stores a single name and score in the local storage.
 
 Besides some errors that show up due to chrome extensions it should load without any errors in the console.
 
